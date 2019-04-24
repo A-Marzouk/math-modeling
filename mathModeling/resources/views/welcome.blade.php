@@ -30,7 +30,7 @@
 <header class="header_area">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container" style="height: 74px;">
+            <div class="container" style="height: 85px;">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand logo_h" href="index.html"><img src="/mathModeling/public/img/logo_white_2.png" alt="" width="250" height="100"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

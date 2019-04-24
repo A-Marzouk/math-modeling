@@ -24,9 +24,12 @@ class FormController extends Controller
             return $result;
         }
 
+        $path= ' NO FILE INCLUDED';
+        if(isset($request->consule_file)){
+            $file_info = Upload::consultFile('consult_file');
+            $path = $file_info['path'] ;
+        }
 
-        $file_info = Upload::consultFile('consult_file');
-        $path = $file_info['path'] ;
         return [
             'status' => 'success',
             'file_path' => $path

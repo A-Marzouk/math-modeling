@@ -1839,6 +1839,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ConsultForm",
   data: function data() {
@@ -1850,7 +1860,8 @@ __webpack_require__.r(__webpack_exports__);
         message: ''
       },
       consult_file: '',
-      errors: []
+      errors: [],
+      show_thanks_message: false
     };
   },
   methods: {
@@ -1869,41 +1880,29 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.status === 'success') {
-          // show thank you message.
-          console.log(response.data.status);
-          console.log(response.data.path);
-          formData.set('consilt_file', response.data.path);
-          axios.get('https://script.google.com/macros/s/AKfycbxvtxzf7YS0DUX7CVxpaIzFzW_Yd7bneJ9wa7E3HXU0g_L7oFTn/exec', formData.serialize).then(function (response_2) {
-            console.log(response_2.data);
-          });
+          var request = new XMLHttpRequest();
+          var d = new Date();
+          var n = d.getTime();
+          var url = 'https://docs.google.com/forms/d/e/1FAIpQLSfFglGWgDsGe3w0rqC6t8ZalQJLXhKi9g1h2q4JiwsCfJ8f6g/formResponse?' + 'entry.624144006=' + _this.formData.name + '&entry.1038349330=' + _this.formData.phone + '&entry.1384246855=' + _this.formData.organization_name + '&entry.1699647973=' + _this.formData.message + '&entry.1511675176=http://math-modeling.kl.com.ua/' + response.data.file_path;
+          request.open('GET', url);
+          request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+          request.send(); // clear form data :
+
+          _this.formData = {
+            name: '',
+            phone: '',
+            organization_name: '',
+            message: ''
+          };
+          _this.consult_file = ''; // show thanks message
+
+          _this.show_thanks_message = true;
         } else {
-          // show errors.
-          console.log(response.data);
           _this.errors = response.data;
         }
       });
     },
-    postToGoogle: function postToGoogle() {
-      $.ajax({
-        url: "https://docs.google.com/forms/d/e/1FAIpQLSfFglGWgDsGe3w0rqC6t8ZalQJLXhKi9g1h2q4JiwsCfJ8f6g/formResponse?",
-        data: {
-          "entry.624144006": 'test',
-          "entry.1038349330": 'test',
-          "entry.1384246855": 'test',
-          "entry.1699647973": 'test',
-          "entry.1511675176": 'test'
-        },
-        type: "POST",
-        dataType: "xml",
-        success: function success(d) {
-          console.log('done');
-        },
-        error: function error(x, y, z) {
-          console.log('not done');
-        }
-      });
-      return false;
-    },
+    postToGoogle: function postToGoogle() {},
     handleFileUpload: function handleFileUpload() {
       this.consult_file = this.$refs.consult_file.files[0];
     }
@@ -6373,7 +6372,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.error[data-v-15588c96]{\n    color: red;\n    font-size: smaller;\n}\n", ""]);
+exports.push([module.i, "\n.error[data-v-15588c96]{\n    color: red;\n    font-size: smaller;\n}\n.thanks-message[data-v-15588c96]{\n    line-height: 24px;\n    font-size: 18px;\n    color: black;\n}\n.thanks-message span[data-v-15588c96]{\n    font-size: 22px;\n    color: lightgreen;\n}\n", ""]);
 
 // exports
 
@@ -37882,6 +37881,14 @@ var render = function() {
                   _c(
                     "form",
                     {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.show_thanks_message,
+                          expression: "!show_thanks_message"
+                        }
+                      ],
                       staticClass: "row contact_form",
                       attrs: { method: "post" },
                       on: {
@@ -38152,6 +38159,27 @@ var render = function() {
                       _vm._v(" "),
                       _vm._m(2)
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.show_thanks_message,
+                          expression: "show_thanks_message"
+                        }
+                      ],
+                      staticClass: "thanks-message pb-5"
+                    },
+                    [
+                      _vm._m(3),
+                      _vm._v(
+                        "\n                            Наши специалисты свяжутся с тобой в течение 3-х часов.\n                            Рабочее время 09:00-18:00\n                        "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -38216,6 +38244,18 @@ var staticRenderFns = [
         },
         [_vm._v("Отправить заявку")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "pb-4" }, [
+      _vm._v(
+        "\n                                Твоя заявка успешно отправлено !"
+      ),
+      _c("br"),
+      _c("br")
     ])
   }
 ]

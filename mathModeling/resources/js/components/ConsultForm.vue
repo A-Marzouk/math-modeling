@@ -21,7 +21,7 @@
 
                     <div class="modal-body">
                         <div class="col-lg-12">
-                            <form class="row contact_form" method="post"  @submit.prevent="storeConsultForm">
+                            <form v-show="!show_thanks_message" class="row contact_form" method="post"  @submit.prevent="storeConsultForm">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя *" v-model="formData.name" required>
@@ -66,11 +66,21 @@
                                     <button type="submit" value="submit" class="primary_btn">Отправить заявку</button>
                                 </div>
                             </form>
+
+                            <div class="thanks-message pb-5" v-show="show_thanks_message">
+                               <span class="pb-4">
+                                    Твоя заявка успешно отправлено !<br/><br/>
+                               </span>
+                                Наши специалисты свяжутся с тобой в течение 3-х часов.
+                                Рабочее время 09:00-18:00
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -86,7 +96,8 @@
                     message:'',
                 },
                 consult_file:'',
-                errors:[]
+                errors:[],
+                show_thanks_message : false
             }
         },
         methods:{
@@ -107,36 +118,36 @@
                     )
                     .then( (response) => {
                        if(response.data.status === 'success'){
-                           // show thank you message.
-                           console.log(response.data.status);
-                           console.log(response.data.path);
-                           formData.set('consilt_file',response.data.path)
-                           axios.get('https://script.google.com/macros/s/AKfycbxvtxzf7YS0DUX7CVxpaIzFzW_Yd7bneJ9wa7E3HXU0g_L7oFTn/exec',formData.serialize).then( (response_2) => {
-                               console.log(response_2.data);
-                           });
+                           var request = new XMLHttpRequest();
+                           var d = new Date();
+                           var n = d.getTime();
+                           var url = 'https://docs.google.com/forms/d/e/1FAIpQLSfFglGWgDsGe3w0rqC6t8ZalQJLXhKi9g1h2q4JiwsCfJ8f6g/formResponse?' +
+                               'entry.624144006='+ this.formData.name + '&entry.1038349330='+ this.formData.phone + '&entry.1384246855=' + this.formData.organization_name + '&entry.1699647973=' + this.formData.message + '&entry.1511675176=http://math-modeling.kl.com.ua/'+response.data.file_path;
+                           request.open('GET', url);
+                           request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                           request.send();
+
+                           // clear form data :
+                           this.formData={
+                               name:'',
+                                   phone:'',
+                                   organization_name:'',
+                                   message:'',
+                           };
+                           this.consult_file = '';
+
+                           // show thanks message
+
+                           this.show_thanks_message = true ;
+
+
                        }else{
-                           // show errors.
-                           console.log(response.data);
                            this.errors = response.data;
                        }
                     });
             },
             postToGoogle() {
-                $.ajax({
-                    url: "https://docs.google.com/forms/d/e/1FAIpQLSfFglGWgDsGe3w0rqC6t8ZalQJLXhKi9g1h2q4JiwsCfJ8f6g/formResponse?",
-                    data: {"entry.624144006": 'test', "entry.1038349330": 'test', "entry.1384246855": 'test', "entry.1699647973": 'test', "entry.1511675176": 'test'},
-                    type: "POST",
-                    dataType: "xml",
-                    success: function(d)
-                    {
-                        console.log('done');
-                    },
-                    error: function(x, y, z)
-                    {
-                        console.log('not done');
-                    }
-                });
-                return false;
+
             },
             handleFileUpload(){
                 this.consult_file = this.$refs.consult_file.files[0];
@@ -153,5 +164,15 @@
     .error{
         color: red;
         font-size: smaller;
+    }
+
+    .thanks-message{
+        line-height: 24px;
+        font-size: 18px;
+        color: black;
+    }
+    .thanks-message span{
+        font-size: 22px;
+        color: lightgreen;
     }
 </style>
