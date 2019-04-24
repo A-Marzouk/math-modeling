@@ -106,8 +106,14 @@
                         }
                     )
                     .then( (response) => {
-                       if(response.data === 'success'){
+                       if(response.data.status === 'success'){
                            // show thank you message.
+                           console.log(response.data.status);
+                           console.log(response.data.path);
+                           formData.set('consilt_file',response.data.path)
+                           axios.get('https://script.google.com/macros/s/AKfycbxvtxzf7YS0DUX7CVxpaIzFzW_Yd7bneJ9wa7E3HXU0g_L7oFTn/exec',formData.serialize).then( (response_2) => {
+                               console.log(response_2.data);
+                           });
                        }else{
                            // show errors.
                            console.log(response.data);

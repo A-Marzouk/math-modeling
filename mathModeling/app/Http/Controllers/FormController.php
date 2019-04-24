@@ -27,7 +27,10 @@ class FormController extends Controller
 
         $file_info = Upload::consultFile('consult_file');
         $path = $file_info['path'] ;
-        return $path;
+        return [
+            'status' => 'success',
+            'file_path' => $path
+        ];
 
     }
 

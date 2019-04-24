@@ -1868,7 +1868,14 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'multipart/form-data'
         }
       }).then(function (response) {
-        if (response.data === 'success') {// show thank you message.
+        if (response.data.status === 'success') {
+          // show thank you message.
+          console.log(response.data.status);
+          console.log(response.data.path);
+          formData.set('consilt_file', response.data.path);
+          axios.get('https://script.google.com/macros/s/AKfycbxvtxzf7YS0DUX7CVxpaIzFzW_Yd7bneJ9wa7E3HXU0g_L7oFTn/exec', formData.serialize).then(function (response_2) {
+            console.log(response_2.data);
+          });
         } else {
           // show errors.
           console.log(response.data);
@@ -50369,6 +50376,12 @@ Vue.component('consult-form', __webpack_require__(/*! ./components/ConsultForm.v
 if ($("#consult-form-wrapper").length !== 0) {
   var consult_form_wrapper = new Vue({
     el: '#consult-form-wrapper'
+  });
+}
+
+if ($("#consult-form-wrapper-2").length !== 0) {
+  var consult_form_wrapper_2 = new Vue({
+    el: '#consult-form-wrapper-2'
   });
 }
 

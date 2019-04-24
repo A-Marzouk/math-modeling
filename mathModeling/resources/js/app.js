@@ -39,4 +39,12 @@ if ($("#consult-form-wrapper").length !== 0){
     });
 }
 
+if ($("#consult-form-wrapper-2").length !== 0){
+
+    let consult_form_wrapper_2 = new Vue({
+        el:'#consult-form-wrapper-2'
+    });
+}
+
+
 
