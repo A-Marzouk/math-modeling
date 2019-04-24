@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1dc92b1-6d60-48d4-86fa-3c5dcfc94d1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mathModeling/public/img/projects/R-8.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathModeling/app/Http/Controllers/FormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/mathModeling/app/Http/Controllers/FormController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mathModeling/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mathModeling/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathModeling/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/mathModeling/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mathModeling/resources/js/components/ConsultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/mathModeling/resources/js/components/ConsultForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathModeling/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/mathModeling/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,10 +61,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mathModeling/resources/js/components/ConsultForm.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="119" column="55" lean-forward="true" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
+            <state relative-caret-position="259">
+              <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#4815#5903#0" />
               </folding>
             </state>
           </provider>
@@ -348,7 +337,7 @@
       <workItem from="1555619608676" duration="1710000" />
       <workItem from="1555690192654" duration="6261000" />
       <workItem from="1555869419086" duration="12987000" />
-      <workItem from="1556086811678" duration="6839000" />
+      <workItem from="1556086811678" duration="8461000" />
     </task>
     <task id="LOCAL-00001" summary="about us section">
       <created>1555885387711</created>
@@ -357,11 +346,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555885387711</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="form submit">
+      <created>1556093990209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556093990209</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29247000" />
+    <option name="totallyTimeSpent" value="30869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -394,7 +390,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="about us section" />
-    <option name="LAST_COMMIT_MESSAGE" value="about us section" />
+    <MESSAGE value="form submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="form submit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -523,10 +520,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mathModeling/resources/js/components/ConsultForm.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="119" column="55" lean-forward="true" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
+        <state relative-caret-position="259">
+          <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#4815#5903#0" />
           </folding>
         </state>
       </provider>

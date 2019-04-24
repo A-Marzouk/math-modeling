@@ -1883,9 +1883,34 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    postToGoogle: function postToGoogle() {
+      $.ajax({
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSfFglGWgDsGe3w0rqC6t8ZalQJLXhKi9g1h2q4JiwsCfJ8f6g/formResponse?",
+        data: {
+          "entry.624144006": 'test',
+          "entry.1038349330": 'test',
+          "entry.1384246855": 'test',
+          "entry.1699647973": 'test',
+          "entry.1511675176": 'test'
+        },
+        type: "POST",
+        dataType: "xml",
+        success: function success(d) {
+          console.log('done');
+        },
+        error: function error(x, y, z) {
+          console.log('not done');
+        }
+      });
+      return false;
+    },
     handleFileUpload: function handleFileUpload() {
       this.consult_file = this.$refs.consult_file.files[0];
     }
+  },
+  mounted: function mounted() {
+    console.log('mounted');
+    this.postToGoogle();
   }
 });
 
